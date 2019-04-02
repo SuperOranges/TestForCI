@@ -34,3 +34,9 @@ branches:
 before_install:
 
 - chmod +x mvnw
+
+script:
+
+- sh travis_script/build_services.sh
+
+- sh travis_script/deploy_to_docker_hub.sh
