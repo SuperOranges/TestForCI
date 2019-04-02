@@ -15,7 +15,7 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <docker-host>http://47.101.204.242:5678</docker-host>
+        <!--<docker-host>http://47.101.204.242:5678</docker-host>-->
         <spring-cloud.version>Greenwich.RC2</spring-cloud.version>
         <project.build.finalName>demo-0.0.1-SNAPSHOT</project.build.finalName>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -95,7 +95,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.10</version>
                 <configuration>
-                    <dockerHost>${docker-host}</dockerHost>
+                    <!--<dockerHost>${docker-host}</dockerHost>-->
                     <imageName>${docker.image.name}:${docker.image.tag}</imageName>
                     <dockerDirectory>${basedir}/target/dockerfile</dockerDirectory>
                     <resources>
