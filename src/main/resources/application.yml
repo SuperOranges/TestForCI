@@ -1,0 +1,16 @@
+eureka:
+  client:
+    fetch-registry: false #是否从Eureka中检索已注册的服务
+    register-with-eureka: false #本实例是否在eureka服务器上注册自己的信息以供其他服务发现
+    service-url: #指定服务注册中心地址，如果服务注册中心为高可用集群时，多个注册中心地址以逗号分隔。
+      defaultZone: ${defaultZoneUri:http://localhost:8761/eureka/}
+  instance:
+    prefer-ip-address: true #true为不使用主机名来定义本实例在注册中心的地址，而使用IP地址的形式
+
+server:
+  port: ${port:8761}
+
+# 安全认证的配置
+spring:
+  application:
+    name: eurekaserver #应用名
