@@ -48,17 +48,17 @@ script:
 - sh travis_script/deploy_to_docker_hub.sh
 
 deploy:
-  provider: script
-  skip_cleanup: true
-  script: rsync -r --quiet docker/common/ root@$IP:/tmp/docker-compose/
-  on:
-    branch: master
+ - provider: script
+   skip_cleanup: true
+   script: rsync -r --quiet docker/common/ root@$IP:/tmp/docker-compose/
+   on:
+     branch: master
 
-  provider: script
-  skip_cleanup: true
-    script: sh travis_script/deploy_to_remote_ecs.sh
-    on:
-      branch: master
+ - provider: script
+   skip_cleanup: true
+   script: sh travis_script/deploy_to_remote_ecs.sh
+   on:
+     branch: master
 
 
 
