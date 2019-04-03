@@ -50,7 +50,7 @@ script:
 deploy:
  - provider: script
    skip_cleanup: true
-   script: rsync -r --quiet docker/common/ root@$IP:/tmp/docker-compose/
+   script: yes | rsync -r --quiet docker/common/ root@$IP:/tmp/docker-compose/
    on:
      branch: master
 
