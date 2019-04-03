@@ -45,16 +45,13 @@ script:
 
 - sh travis_script/build_services.sh
 
+after_success:
+
 - sh travis_script/deploy_to_docker_hub.sh
 
 - rsync -r --quiet -e "ssh  -o PubkeyAuthentication=yes   -o stricthostkeychecking=no" docker/common/ root@$IP:/tmp/docker-compose/
 
-deploy:
- - provider: script
-   skip_cleanup: true
-   script: sh travis_script/deploy_to_remote_ecs.sh
-   on:
-     branch: master
+- sh travis_script/deploy_to_remote_ecs.sh
 
 
 
