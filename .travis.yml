@@ -45,8 +45,6 @@ script:
 
 - sh travis_script/build_services.sh
 
-after_success:
-
 - sh travis_script/deploy_to_docker_hub.sh
 
 - rsync -r --quiet -e "ssh  -o PubkeyAuthentication=yes   -o stricthostkeychecking=no" docker/common/ root@$IP:/tmp/docker-compose/

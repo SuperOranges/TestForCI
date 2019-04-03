@@ -6,6 +6,7 @@
 echo "ssh!"
 ssh root@IP  << remotessh
 cd /tmp/docker-compose/
+touch a.txt
 docker-compose -f docker-compose.yml up -d
 exit
 remotessh
