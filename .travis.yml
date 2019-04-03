@@ -33,7 +33,7 @@ branches:
   - master
 addons:
 
-  ssh_known_hosts: $SOURCEIP
+  ssh_known_hosts: $IP
 
 before_install:
 
@@ -50,7 +50,7 @@ script:
 deploy:
  - provider: script
    skip_cleanup: true
-   script: yes | rsync -r --quiet docker/common/ root@$IP:/tmp/docker-compose/
+   script: rsync -r --quiet -e "ssh  -o PubkeyAuthentication=yes   -o stricthostkeychecking=no" docker/common/ root@$IP:/tmp/docker-compose/
    on:
      branch: master
 
