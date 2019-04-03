@@ -33,7 +33,7 @@ branches:
   - master
 addons:
 
-  ssh_known_hosts: $IP
+  ssh_known_hosts: $SOURCEIP
 
 before_install:
 
