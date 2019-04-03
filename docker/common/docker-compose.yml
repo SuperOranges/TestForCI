@@ -1,6 +1,6 @@
 eurekaserver:
 
-   image:   superoranges/demo:latest
+   image: superoranges/demo:latest
 
    mem_limit: 1073741824
 
