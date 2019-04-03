@@ -38,8 +38,8 @@ addons:
 before_install:
 
 - chmod +x mvnw
-- openssl aes-256-cbc -K $encrypted_6ab4bcd67e1c_key -iv $encrypted_6ab4bcd67e1c_iv -in deploy_rsa.enc -out /tmp/key/deploy_rsa -d
-- chmod 600 /tmp/key/deploy_rsa
+- openssl aes-256-cbc -K $encrypted_6ab4bcd67e1c_key -iv $encrypted_6ab4bcd67e1c_iv -in deploy_rsa.enc -out /tmp/deploy_rsa -d
+- chmod 600 /tmp/deploy_rsa
 
 script:
 
