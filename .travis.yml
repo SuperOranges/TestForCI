@@ -31,12 +31,35 @@ branches:
   only:
 
   - master
+addons:
+
+  ssh_known_hosts: $IP
+
 before_install:
 
 - chmod +x mvnw
+- openssl aes-256-cbc -K $encrypted_6ab4bcd67e1c_key -iv $encrypted_6ab4bcd67e1c_iv -in deploy_rsa.enc -out /tmp/key/deploy_rsa -d
+- chmod 600 /tmp/key/deploy_rsa
 
 script:
 
 - sh travis_script/build_services.sh
 
 - sh travis_script/deploy_to_docker_hub.sh
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: rsync -r --quiet docker/common/ root@$IP:/tmp/docker-compose/
+  on:
+    branch: master
+
+  provider: script
+  skip_cleanup: true
+    script: sh travis_script/deploy_to_remote_ecs.sh
+    on:
+      branch: master
+
+
+
+
